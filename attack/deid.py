@@ -33,8 +33,9 @@ class Pixelate(DeID):
             image: cv2 image
             plate_box: bounding box of face. In (x1,y1,x2,y2) format
         """
-        x1,y1,x2,y2 = plate_box
+        x1,x2,y1,y2 = plate_box
         crop = image[y1:y2, x1:x2, :]
+
         
         # divide the input image into NxN blocks
         (h, w) = crop.shape[:2]
@@ -79,7 +80,7 @@ class Blur(DeID):
             image: cv2 image
             plate_box: bounding box of face. In (x1,y1,x2,y2) format
         """
-        x1,y1,x2,y2 = plate_box
+        x1,x2,y1,y2 = plate_box
         crop = image[y1:y2, x1:x2, :]
         crop = cv2.blur(crop, self.kernel_size)
         image[y1:y2, x1:x2, :] = crop.copy()
