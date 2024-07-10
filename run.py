@@ -1,6 +1,9 @@
-from utils.preprocess import parse_xml_to_csv, get_data_labels, split_train_test
 import os
 import pandas as pd
+from attack.deid import Blur
+from utils.preprocess import parse_xml_to_csv, get_data_labels, split_train_test
+
+from test import test
 
 # check if csv file exists
 if not os.path.exists('./car-plate-detection-labels.csv'):
